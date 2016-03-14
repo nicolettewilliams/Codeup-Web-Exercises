@@ -1,0 +1,192 @@
+.container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+body { 
+    background: url(/img/dark_embroidery.png) center fixed;
+    color: #fff;
+    font-family: 'Poiret One', cursive;
+}
+
+.name{
+    background-color: gray;
+    font-size: 4em;
+    height: 100px;
+    padding-top: 15px;
+}
+
+.title{
+    background-color: #777;
+    font-size: 4em;
+}
+
+.full-stack-title{
+    font-size: 3em;
+    height: 80px;
+    padding-top: 20px;
+}
+
+.full-stack-row{
+    height: 100px;
+}
+
+div{
+    margin: 0px;
+}
+
+.no-padding{
+    padding: 0px;
+}
+
+.small-text{
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.light-gray{
+    background-color: #777;
+    text-align: center;
+}
+
+.dark-gray{
+    background-color: #484848;
+    font-size: 4em;
+    text-align: center;
+}
+
+.green{
+    background-color: #1ABC9C;
+}
+
+.center-4em{
+    font-size: 3.9em;
+    text-align: center;
+
+}
+
+.blue{
+    background-color: #3498DB;
+    margin: 0px;
+}
+
+.purple{
+    background-color: #9B59B6;
+    margin: 0px;
+}
+
+.orange{
+    background-color: #E67E22;
+}
+
+.download{
+    background-color: #484848;
+}
+
+.titles-and-content{
+    background-color: #fff;
+    color: #000;
+    margin: 0px;
+}
+
+.content{
+    padding-left: 20px;
+    padding-bottom: 15px;
+    padding-right: 20px;
+}
+
+.personal-info{
+    background-color: #f2f2f2;
+    color: #000;
+    padding-left: 15px;
+    padding-bottom: 36px;
+    margin: 0px;
+}
+
+.personal-info-title{
+    background-color: #f2f2f2;
+    padding-bottom: 3px;
+}
+
+.info-title{
+    font-size: 24px;
+}
+
+.fa-download{
+    margin-top: 15px;
+}
+
+.pro-skills-title{
+    font-size: 3em;
+    padding-bottom: 20px;
+}
+
+.icon-text{
+    margin-bottom: 10px;
+}
+
+.pro-exp-title{
+    padding: 4px;
+}
+
+.pro-skills-content{
+    padding-bottom: 36px;
+}
+
+.img-size{
+    height: 290px;
+}
+
+.last-row{
+    background-color: #484848;
+    color: #808080;
+    padding: 35px;
+    font-size: 25px;
+}
+
+.subscribe-boxes{
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #808080;
+}
+
+.subscribe-button{
+    box-shadow: inset 0 0 10px #000000;
+    border: 0px;
+
+}
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: white;
+}
+
+@media (max-width: 480px) { 
+        .name {
+            text-align: center;
+            font-size: 3em;
+        }
+
+@media (max-width: 480px) { 
+        .full-stack-title {
+            text-align: center;
+            font-size: 2em
+        }
+
+
+

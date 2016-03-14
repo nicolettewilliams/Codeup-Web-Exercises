@@ -1,0 +1,27 @@
+        .my_button{
+            background-color:cyan;
+            color:navy; 
+            border:0px;
+            font-weight: bold;
+        }
+
+        p, h1, h2, h3{
+            text-indent: 25px;
+        }
+
+        html { 
+            background: url(../img/background.jpg) no-repeat center fixed;
+            background-size: cover;
+        }
+
+        #rain_label{
+            display: none;
+        }
+
+        #traveled_label{
+            display: none;
+        }
+
+        textarea, input{
+            background-color: rgba(255, 255, 255, .60);
+        }

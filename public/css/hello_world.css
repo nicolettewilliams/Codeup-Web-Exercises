@@ -1,0 +1,52 @@
+html { 
+    background: url(/img/symphony.png) center fixed;
+    font-family: 'Poiret One', cursive;
+    color: rgb(160,160,160);
+}
+
+.pacifico{
+    font-family: 'Pacifico', cursive;
+    color:#00FA9A; 
+}
+
+.big_text{
+    font-size: 4em;
+}
+
+.medium_text{
+    font-size: 2em;
+}
+
+#wrapper{
+    margin: 0 20% 0 20%;
+    background-color: rgba(245, 240, 240, 1);
+    text-align: center;
+}
+
+ul, ol{
+    list-style-position: inside;
+}
+
+table{
+    margin-right: auto;
+    margin-left: auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 2px dotted rgb(160,160,160);
+}
+
+.mario {
+    list-style-image: url(/img/mario_banana.gif) ;
+}
+
+.the-kids{
+    width: 300px;
+    height: auto;
+}
+
+tr:hover:not(#table_head){
+    background-color: rgb(179, 255, 204);
+}
+
