@@ -134,7 +134,8 @@ div{
 }
 
 .img-size{
-    height: 290px;
+    height: 310px;
+    min-width: 100%;
 }
 
 .last-row{
@@ -182,11 +183,9 @@ a:active {
             font-size: 3em;
         }
 
-@media (max-width: 480px) { 
         .full-stack-title {
             text-align: center;
             font-size: 2em
         }
-
-
+}
 
