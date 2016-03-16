@@ -22,7 +22,7 @@ body {
 }
 
 .full-stack-title{
-    font-size: 2.5em;
+    font-size: 3em;
     height: 80px;
     padding-top: 20px;
 }
@@ -57,6 +57,7 @@ div{
 
 .green{
     background-color: #1ABC9C;
+
 }
 
 .center-4em{
@@ -177,6 +178,7 @@ a:active {
     color: white;
 }
 
+/*changes size of my name and title when on mobile*/
 @media (max-width: 480px) { 
         .name {
             text-align: center;
@@ -189,3 +191,22 @@ a:active {
         }
 }
 
+.green:hover{
+    background-color: #117a65;
+}
+
+.orange:hover{
+    background-color: #b7661f;
+}
+
+.blue:hover{
+    background-color: #2773a5;
+}
+
+.purple:hover{
+    background-color: #7c4693;
+}
+
+.light-gray:hover{
+    background-color: #302f2f;
+}

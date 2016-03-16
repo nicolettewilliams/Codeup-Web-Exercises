@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>This is HTML</title>
+</head>
+<body>
+
+
+<script>
+    
+    "use strict" ;
+
+    var nikiIsHungry = true ;
+    var favoriteFood = "bbq" ;
+
+    if (nikiIsHungry) {
+        console.log("go get something to eat then");
+
+        if (favoriteFood == "burgers") {
+            console.log("go to cheesy janes") ;
+        } else if (favoriteFood == "pizza") {
+            console.log("go to willy b's") ;
+        } else if (favoriteFood == "bbq") {
+            console.log("go to augies") ;
+        } 
+
+    } else {
+        console.log("good job, you got lunch") ;
+    }
+
+
+console.log(nikiIsHungry ? "go get something to eat then" : "good job getting lunch") ;
+
+ 
+
+
+switch (favoriteFood) {
+    case "burgers" : 
+        console.log("go to cheesy janes");
+        break;
+    case "pizza" : 
+        console.log("go to willy b's");
+        break;
+    case "bbq" : 
+    case "fried chicken" :
+        console.log("go to bill miller");
+        break;
+    default:
+        console.log("quit being so picky, man");
+        break;
+}
+
+
+
+</script>
+
+
+
+</body>
+</html>

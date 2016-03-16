@@ -6,11 +6,11 @@
    var fullStackTitleElement = document.getElementById('full_stack_title');
      if(i & 1){
 
-        fullStackTitleElement.innerHTML = "The Experienced Web Developer";
+        fullStackTitleElement.innerHTML = "Web Developer";
          i++;
 
      } else {
-        fullStackTitleElement.innerHTML = "The Experienced Web Designer";
+        fullStackTitleElement.innerHTML = "Web Designer";
          i++;
      }
   }
