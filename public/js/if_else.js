@@ -28,8 +28,8 @@ if (color == 'red') {
 } else if (color == 'blue') {
     console.log ('Blue is the color of the sky.');
 } else {
-    console.log ('I do not know anything by that color.');
+    console.log (color + ' I do not know anything by that color.');
 }
 
 
-color == 'blue' ? console.log('blue is my fav color') : console.log('not my fav color');
+color == 'blue' ? console.log('blue is my fav color') : console.log(color + ' is not my fav color');
