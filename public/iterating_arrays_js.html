@@ -15,13 +15,21 @@ var names = ['niki' , 'remington' , 'aria' , 'archer']
 console.log('there are ' + names.length + ' names in the array.')
 // todo:
 // Create log statements that will print each of the names array elements individually.
-console.log('the 1st name is ' + names[0]);
-console.log('the 2nd name is ' + names[1]);
-console.log('the 3rd name is ' + names[2]);
-console.log('the 4th name is ' + names[3]);
+
+for (var i = 0; i < names.length; i++) {
+    console.log('The name at index ' + i + ' is: ' + names[i]);
+}
 
 
+// loop through the array and log the values
+names.forEach(function (element, index, array) {
 
+    // element is the shape name
+    // index is the iterator
+    // array is the shapes array itself
+
+    console.log('The name at index ' + index + ' is: ' + element);
+});
 
 </script>
 </body>
