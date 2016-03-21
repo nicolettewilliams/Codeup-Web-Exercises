@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>JSON</title>
+</head>
+<body>
+<script>
+    var books = [{
+        "title": "Silence Of The Lambs",
+        "author": {
+            "firstName": "Thomas",
+            "lastName": "Harris"
+        }
+    },{
+        "title": "Mr. Mercedes",
+        "author": {
+            "firstName": "Stephen",
+            "lastName": "King"
+        }
+    },{
+        "title": "Dark Places",
+        "author": {
+            "firstName": "Gillian",
+            "lastName": "Flynn"
+        }
+    },{
+        "title": "The Day Of The Jackal",
+        "author": {
+            "firstName": "Frederick",
+            "lastName": "Forsyth"
+        }
+    },{
+        "title": "Shutter Island",
+        "author": {
+            "firstName": "Dennis",
+            "lastName": "Lehane"
+        }
+    }];
+    // log out the books array
+    console.log(books);
+    // todo:
+    // Loop through the array of books using .forEach and print out the specified information about each one.
+    // start loop here
+    books.forEach(function(book, index){
+        console.log("Book #" + (index + 1));
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + ' ' + book.author.lastName);
+        console.log("---");
+    });
+    // end loop here
+</script>
+
+
+
+
+
+
+</body>
+</html>

@@ -6,27 +6,22 @@
 
 <script>
   
-// todo:
-// Create an array of 4 names using literal array notation, in a variable called 'names'.
+
 var names = ['niki' , 'remington' , 'aria' , 'archer']
 
-// todo:
-// Create a log statement that will log the number of elements in the names array.
+
 console.log('there are ' + names.length + ' names in the array.')
-// todo:
-// Create log statements that will print each of the names array elements individually.
+
+
 
 for (var i = 0; i < names.length; i++) {
     console.log('The name at index ' + i + ' is: ' + names[i]);
 }
 
 
-// loop through the array and log the values
+
 names.forEach(function (element, index, array) {
 
-    // element is the shape name
-    // index is the iterator
-    // array is the shapes array itself
 
     console.log('The name at index ' + index + ' is: ' + element);
 });
