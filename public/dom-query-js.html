@@ -14,7 +14,7 @@
         <li data-dbid="5">Item 5</li>
     </ul>
     <h2 id="sub-header">Hello Again.</h2>
-    <p id="sub-paragraph">
+    <p class="sub-paragraph">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -60,13 +60,13 @@
                    }
 
             // TODO: Uncomment the next line and get all elements th class name sub-paragraph
-            var subParagraph = document.getElementById('sub-paragraph');
-            console.log(subParagraph.innerHTML)
+            var subParagraphs = document.getElementsByClassName('sub-paragraph');
 
             // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-           subParagraph.innerHTML = "Mission Accomplished!";
-           console.log(subParagraph.innerHTML);
-
+           for (var i = 0; i < subParagraphs.length; i++) {
+                subParagraphs[i].innerHTML='Mission Accomplished!';
+            }
+          
         })();
     </script>
 </body>
