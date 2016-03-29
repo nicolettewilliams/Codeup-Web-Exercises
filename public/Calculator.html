@@ -1,75 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
+
+    <title>Calculator</title>
 
     <link rel="stylesheet" href="/css/calculator.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Poiret+One|Pacifico' rel='stylesheet' type='text/css'>
 
-    <title>Calculator</title>
+    <link href='https://fonts.googleapis.com/css?family=Play|Poiret+One' rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 
 </head>
 
 <body>
 
-    <main id="main">
+    <div id="calculator">
 
-        <p id="calculator">Calculator</p>
+        <div id="calculator_title">Calculator</div>
 
-        <form method="post">
+        <form>
 
-        <input type="text" id="leftOperand" value="" class="operand" name="left operand" readonly>
+            <input type="text" id="display">
+            <br>
 
-        <input type="text" id="operator" value="" class="operator" name="operator" readonly>
+            <input type="button" value="C" id="keys" class="style symbol clear_button" onClick="addToScreen('c')">
+            <input type="button" value="<--" id="keys" class="style symbol" onClick="backspace()">
+            <input type="button" value="X^3" id="keys" class="style symbol" onClick="power(3)">
+            <input type="button" value="+" id="keys" class="style symbol" onClick="addToScreen('+')">
+            <br>
 
-        <input type="text" id="rightOperand" value="" class="operand" name="right" readonly>
+            <input type="button" value="1" id="keys" class="style number" onClick="addToScreen('1')">
+            <input type="button" value="2" id="keys" class="style number" onClick="addToScreen('2')">
+            <input type="button" value="3" id="keys" class="style number" onClick="addToScreen('3')">
+            <input type="button" value="-" id="keys" class="style symbol" onClick="addToScreen('-')">
+            <br>
+
+            <input type="button" value="4" id="keys" class="style number" onClick="addToScreen('4')">
+            <input type="button" value="5" id="keys" class="style number" onClick="addToScreen('5')">
+            <input type="button" value="6" id="keys" class="style number" onClick="addToScreen('6')">
+            <input type="button" value="*" id="keys" class="style symbol" onClick="addToScreen('*')">
+            <br>
+
+            <input type="button" value="7" id="keys" class="style number" onClick="addToScreen('7')">
+            <input type="button" value="8" id="keys" class="style number" onClick="addToScreen('8')">
+            <input type="button" value="9" id="keys" class="style number" onClick="addToScreen('9')">
+            <input type="button" value="/" id="keys" class="style symbol" onClick="addToScreen('/')">
+            <br> 
+
+            <input type="button" value="0" id="keys" class="style number" onClick="addToScreen('0')">
+            <input type="button" value="." id="keys" class="style symbol" onClick="addToScreen('.')">
+            <input type="button" value="=" id="equal" class="style symbol" onClick="answer()">
+        
 
         </form>
 
-        <p class="clearfix">
-            <button id="1" type="button" class="number" value="1">1</button>
+    </div>
 
-            <button id="2" type="button" class="number" value="2">2</button>
 
-            <button id="3" type="button" class="number" value="3">3</button>
-
-            <button id="+" type="button" value="+" class="symbol">+</button>
-        </p>
-
-        <p class="clearfix">
-            <button id="4" type="button" class="number" value="4">4</button>
-
-            <button id="5" type="button" class="number" value="5">5</button>
-
-            <button id="6" type="button" class="number" value="6">6</button>
-
-            <button id="-" type="button" value="-" class="symbol">-</button>
-        </p>
-
-        <p class="clearfix">
-            <button id="7" type="button" class="number" value="7">7</button>
-
-            <button id="8" type="button" class="number" value="8">8</button>
-
-            <button id="9" type="button" class="number" value="9">9</button>
-
-            <button id="*" type="button" value="*" class="symbol">*</button>
-        </p>
-
-        <p class="clearfix">
-            <button id="C" type="button" class="symbol" value="C">C</button>
-
-            <button id="0" type="button" class="number" value="0">0</button>
-
-            <button id="equals" type="button" value="=" class="symbol">=</button>
-
-            <button id="/" type="button" value="/" class="symbol">/</button>
-        </p>
-
-    </main>
-
-    <script src="/js/calculator.js"></script>
+    <script src="js/calculator.js"></script>
 
 </body>
+
 </html>
