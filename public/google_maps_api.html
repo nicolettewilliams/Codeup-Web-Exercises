@@ -1,0 +1,76 @@
+<html>
+<head>
+</head>
+<body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6tYr3MHBGpKFvll0e6yt0kp_F0y6otVk"></script>
+<script type="text/javascript">
+
+
+    var markers = [
+
+        {
+            "title": 'Chris Madrid\'s',
+            "lat": '29.464164',
+            "lng": '-98.507665',
+            "description": '<h1>Chris Madrid\'s</h1> <a href="https://www.google.com/maps/place/1900+Blanco+Rd,+San+Antonio,+TX+78212/@29.4642468,-98.5098287,17z/data=!4m7!1m4!3m3!1s0x865c5f0c9f366f53:0x8f63767f4f4f9e82!2s1900+Blanco+Rd,+San+Antonio,+TX+78212!3b1!3m1!1s0x865c5f0c9f366f53:0x8f63767f4f4f9e82">1900 Blanco Road, San Antonio, TX 78201</a> <div>For me the <b>Cheezy Cheddar Macho Burger</b></div> <div>with a spoonful of their salsa is possibly the</div> pinnacle of an excellent burger.'
+        },
+
+        {
+            "title": 'Yard House',
+            "lat": '29.594415',
+            "lng": '-98.615204',
+            "description": '<h1>Yard House</h1> <a href="https://www.google.com/maps/place/Yard+House/@29.5928727,-98.6107023,15z/data=!4m2!3m1!1s0x0:0xac6c20edc59a7392">15900 La Cantera Pkwy, San Antonio, TX 78256</a> <h2>BEER</h2>'
+        },
+
+        {
+            "title": 'Comal County Tacos',
+            "lat": '29.806818',
+            "lng": '-98.365420',
+            "description": '<h1>Comal County Tacos</h1> <a href="https://www.google.com/maps/place/Comal+County+Tacos/@29.8049123,-98.3703656,15z/data=!4m2!3m1!1s0x0:0x852064c8a100eefd?sa=X&ved=0ahUKEwi6_vHV3ubLAhUH5GMKHX_qCFgQ_BIIczAK">15405 TX-46, Spring Branch, TX 78070</a> <div>So good you\'ll even find a cow tooth in your barbacoa tacos!'
+        }
+
+    ];
+
+    window.onload = function () {
+        LoadMap();
+    }
+    function LoadMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+            zoom: 9,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+ 
+        //Create and open InfoWindow.
+        var infoWindow = new google.maps.InfoWindow();
+ 
+        for (var i = 0; i < markers.length; i++) {
+            var image = 'http://icons.iconarchive.com/icons/glyphish/glyphish/32/48-fork-and-knife-icon.png'
+            var data = markers[i];
+            var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                icon: image,
+                map: map,
+                title: data.title,
+                animation: google.maps.Animation.DROP,
+            });
+ 
+            //Attach click event to the marker.
+            (function (marker, data) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data.description + "</div>");
+                    infoWindow.open(map, marker);
+                });
+            })(marker, data);
+        }
+    }
+</script>
+<div id="dvMap" style="width: 770px; height: 481px">
+</div>
+</body>
+</html>
+
+
