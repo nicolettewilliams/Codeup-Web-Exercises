@@ -9,24 +9,24 @@
     var markers = [
 
         {
-            "title": 'Chris Madrid\'s',
-            "lat": '29.464164',
-            "lng": '-98.507665',
-            "description": '<h1>Chris Madrid\'s</h1> <a href="https://www.google.com/maps/place/1900+Blanco+Rd,+San+Antonio,+TX+78212/@29.4642468,-98.5098287,17z/data=!4m7!1m4!3m3!1s0x865c5f0c9f366f53:0x8f63767f4f4f9e82!2s1900+Blanco+Rd,+San+Antonio,+TX+78212!3b1!3m1!1s0x865c5f0c9f366f53:0x8f63767f4f4f9e82">1900 Blanco Road, San Antonio, TX 78201</a> <div>For me the <b>Cheezy Cheddar Macho Burger</b></div> <div>with a spoonful of their salsa is possibly the</div> pinnacle of an excellent burger.'
+            "title": 'Gourdough\'s',
+            "lat": '30.249512',
+            "lng": '-97.754808',
+            "description": '<h1>Gourdough\'s</h1> <div><b>1503 S 1st St, Austin, TX 78704</b></div> <div>Ironic names & unique toppings on fried-dough treats served until late-night from a vintage trailer.</div>'
         },
 
         {
-            "title": 'Yard House',
-            "lat": '29.594415',
-            "lng": '-98.615204',
-            "description": '<h1>Yard House</h1> <a href="https://www.google.com/maps/place/Yard+House/@29.5928727,-98.6107023,15z/data=!4m2!3m1!1s0x0:0xac6c20edc59a7392">15900 La Cantera Pkwy, San Antonio, TX 78256</a> <h2>BEER</h2>'
+            "title": 'Porter Gastropub',
+            "lat": '30.228819',
+            "lng": '-97.766787',
+            "description": '<h1>Porter Gastropub</h1> <div><b>3715 S 1st St, Austin, TX 78704</b></div> <div>Spirited pub featuring modern renditions of American bar bites & a deep selection of craft beers</div>'
         },
 
         {
-            "title": 'Comal County Tacos',
-            "lat": '29.806818',
-            "lng": '-98.365420',
-            "description": '<h1>Comal County Tacos</h1> <a href="https://www.google.com/maps/place/Comal+County+Tacos/@29.8049123,-98.3703656,15z/data=!4m2!3m1!1s0x0:0x852064c8a100eefd?sa=X&ved=0ahUKEwi6_vHV3ubLAhUH5GMKHX_qCFgQ_BIIczAK">15405 TX-46, Spring Branch, TX 78070</a> <div>So good you\'ll even find a cow tooth in your barbacoa tacos!'
+            "title": 'Black\'s Barbecue',
+            "lat": '29.885885',
+            "lng": '-97.672891',
+            "description": '<h1>Black\'s Barbecue</h1> <div><b>215 N Main St, Lockhart, TX 78644</b></div> <div>Family-run Texas institution since 1932 dishing brisket, ribs & links in a homey, unfussy setting.</div>'
         }
 
     ];
@@ -37,7 +37,7 @@
     function LoadMap() {
         var mapOptions = {
             center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
-            zoom: 9,
+            zoom: 10,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
@@ -68,7 +68,7 @@
         }
     }
 </script>
-<div id="dvMap" style="width: 770px; height: 481px">
+<div id="dvMap" style="width: 100%; height: 100%">
 </div>
 </body>
 </html>
