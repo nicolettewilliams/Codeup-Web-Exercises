@@ -2,22 +2,111 @@
 <html>
 <head>
     <title>Konami Code</title>
+    <link href='https://fonts.googleapis.com/css?family=Play|Poiret+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
-    <h1>Konami Code</h1>
+    <div id="gameOver" style="display:none; color:red; font-size:300px; font-family:'Orbitron';">GAME OVER</div>
 
-    <script src="/js/jquery.js"></script>
+    <h1> Enter the Konami Code </h1>
+    <h2>You will fail in <span id="timer"></span> seconds...</h2>
+
+    <div class="ifYay" style="display:none;"><img id="theImg" src="/img/yay.jpg" height="500"/></div> 
+    <div class="ifFail" style="display:none;"><img class="fail" id="theImg" src="/img/falling.gif" width="100%"/></div>
+
+
+    <script src="/js/jquery-1.12.2.min.js"></script>
+
     <script>
         "use strict";
 
-        $(document).keyup(function(event){
-            console.log(event.keyCode);
-        });
+
+        $(document).ready(function() {
+            
+            var metronome = new Audio("/sounds/metronome.wav");
+            var yay = new Audio("/sounds/yay.wav"); 
+            var sounddown = new Audio("/sounds/sounddown.mp3");
+            var gameover = new Audio("/sounds/gameover.mp3") 
+            var code = [];
+            var konami = "38,38,40,40,37,39,37,39,66,65,13";
+
+            var timer = 0;
+            var seconds = 0;
+            if(document.URL.split('?')[1]) {
+                seconds = parseInt(document.URL.split('?')[1])-2;
+                timer = parseInt(document.URL.split('?')[1]);
+            } else {
+                seconds = 8;
+                timer = 10;
+            }
+
+            $('#timer').val(timer);
+
+            var gameTimer = setInterval(function() {
+                if (timer == 0 && seconds == 0) {
+                    displayGameOver();
+                } else if (timer >= 0) {
+                    document.getElementById('timer').innerHTML = timer;
+                } else if (timer < 0) {
+                    
+                } 
+
+                timer--;
+            }, 1000);
+
+            $('body').css({
+                'font-family' : 'Poiret One',
+                'font-size' : '30px',
+                'color' : 'blue'
+            });
+      
+            $(document).keydown(function(e) {
+                metronome.play();
+                code.push(e.keyCode);
+
+                if (code.toString().indexOf(konami) >=0) {
+                    metronome.pause();
+                    yay.play();
+                    $('.ifYay').show();
+                    $('h1 , h2').hide();
+                    yay.onended = function() {
+                        window.location.href = 'http://codeup.dev/konami.html?' + seconds;
+                    };  
+                }
+
+                if(konami.indexOf(code.toString()) == -1) {
+                    displayFail();
+                }
+
+            });
+
+            function displayFail(){
+                metronome.pause();
+                sounddown.play();
+                $('.ifFail').show();
+                $('h1 , h2').hide(); 
+                sounddown.onended = function() {
+                    window.location.href = 'http://codeup.dev/konami.html?' + seconds;
+                };
+            }
+            function displayGameOver() {
+                $('h1 , h2').hide();
+                $('#gameOver').show();
+                metronome.pause();
+                gameover.play();
+                $('body').css({
+                    'background-color' : '#000'
+                });
+                clearInterval(gameTimer);
+            }
+        })
+
+
+
     </script>
+
+
 </body>
 </html>
-
-
-
-
-↑ ↑ ↓ ↓ ← → ← → b a enter
+              
