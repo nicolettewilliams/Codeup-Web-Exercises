@@ -7,6 +7,7 @@ body {
     background: url(/img/dark_embroidery.png) center fixed;
     color: #fff;
     font-family: 'Poiret One', cursive;
+    cursor: default;
 }
 
 .name{
@@ -212,3 +213,9 @@ a:active {
 .light-gray:hover{
     background-color: #302f2f;
 }
+
+h2{
+    margin: 0px;
+}
+
+
