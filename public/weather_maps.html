@@ -1,43 +1,13 @@
 <html>
 <head>
     <title>Weather Map</title>
-    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
 
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+       <link rel="stylesheet" href="/css/weather-maps.css">
 
-    <style>
-    body{
-        font-family: "Poiret One";
-        text-align: center;
-        font-size: 20px;
-    }
-
-    #weathermaptitle{
-        font-size: 50px;
-    }
-
-    .locationheader{
-        font-size: 35px;
-        margin-bottom: 25px;
-    }
-
-
-    .loading{
-        height: 30px;
-        width: 30px;
-    }
-    #map-canvas {
-        height: 400px;
-        background-color: #CCC;
-        margin-bottom: 30px;
-      }
-
-    .btn{
-        margin-bottom: 15px;
-    }
-
-    </style>
 </head>
 
 <body id="body">
@@ -46,49 +16,49 @@
 
         <header>
 
-            <h1 id="weathermaptitle"> 3 Day Weather Forcast</h1>
+            <h1 id="weathermaptitle"> 3 Day Weather Forecast</h1>
 
         </header>
 
-        <div class="locationheader" style="text-align: center;">---</div>
+        <div class="locationheader" style="text-align: center;">-----</div>
 
         <div class="container">
 
             <div class="row">
 
-                <span class="col-sm-4 weatherframes color">
-                    <span><h3>---°/---°</h3></span>
-                    <span><p><img class="loading" src="/img/loading.gif"></p></span>
+                <span class="col-sm-4 weatherframes margin">
+                    <span><h3>-----° / -----°</h3></span>
+                    <span><p><img class="loading" src="/img/ladybug-load.gif"></p></span>
                     <span><p>-----</p></span>
-                    <span><p>Humidity:---</p></span>
-                    <span><p>Wind:---</p></span>
-                    <span><p>Pressure:---</p></span>
+                    <span><p>Humidity:-----</p></span>
+                    <span><p>Wind:-----</p></span>
+                    <span><p>Pressure:-----</p></span>
                 </span>
-                <span class="col-sm-4 weatherframes2 color">
-                    <span><h3>---°/---°</h3></span>
-                    <span><p><img class="loading" src="/img/loading.gif"></p></span>
+                <span class="col-sm-4 weatherframes2 margin">
+                    <span><h3>-----° / -----°</h3></span>
+                    <span><p><img class="loading" src="/img/ladybug-load.gif"></p></span>
                     <span><p>-----</p></span>
-                    <span><p>Humidity:---</p></span>
-                    <span><p>Wind:---</p></span>
-                    <span><p>Pressure:---</p></span>
+                    <span><p>Humidity:-----</p></span>
+                    <span><p>Wind:-----</p></span>
+                    <span><p>Pressure:-----</p></span>
                 </span>
-                <span class="col-sm-4 weatherframes3 color">
-                    <span><h3>---°/---°</h3></span>
-                    <span><p><img class="loading" src="/img/loading.gif"></p></span>
+                <span class="col-sm-4 weatherframes3 margin">
+                    <span><h3>-----° / -----°</h3></span>
+                    <span><p><img class="loading" src="/img/ladybug-load.gif"></p></span>
                     <span><p>-----</p></span>
-                    <span><p>Humidity:---</p></span>
-                    <span><p>Wind:---</p></span>
-                    <span><p>Pressure:---</p></span>
+                    <span><p>Humidity:-----</p></span>
+                    <span><p>Wind:-----</p></span>
+                    <span><p>Pressure:-----</p></span>
                 </span>
 
             </div>
 
             <form method="post" id="formId">
                 <div class="col-lg-12">
-                    <div class="input-group">
-                        <input id="idLong" type="text" class="form-control" placeholder="Search for place..." name="address">
+                    <div class="input-group margin">
+                        <input id="idLong" type="text" class="form-control" placeholder="Search for a place..." name="address">
                         <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit">Go!</button>
+                        <button class="btn btn-info" type="submit">Go!</button>
                         </span>
                     </div>
                 </div>
@@ -106,7 +76,7 @@
 
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="js/weather-maps.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6tYr3MHBGpKFvll0e6yt0kp_F0y6otVk"></script>
 
 
 
