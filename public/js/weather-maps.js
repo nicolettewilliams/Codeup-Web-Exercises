@@ -1,28 +1,29 @@
+    var map;
 $(function(){
     navigator.geolocation.getCurrentPosition(function(position){
         var ajaxReq = $.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&cnt=3", {
-        APPID: "a3e158cae18676225bc1c74badfe5dfa",
-        units: "imperial"    
-    });
-    ajaxReq.done(function(data){
-        var cityName = data.city.name;
-        weatherRender(data);
-        displayMap(position.coords.latitude,position.coords.longitude,cityName);
+            APPID: "a3e158cae18676225bc1c74badfe5dfa",
+            units: "imperial"    
+        });
+        ajaxReq.done(function(data){
+            var cityName = data.city.name;
+            weatherRender(data);
+            displayMap(position.coords.latitude,position.coords.longitude,cityName);
+        });
+
     });
 
-});
-
-var previousZoom;
+    var previousZoom;
 // =================================================================
     function displayMap(lat,lng,cityName){
         var latLng = new google.maps.LatLng(lat, lng);
         var mapOptions = {
-            zoom: 15,
+            zoom: 20,
             center: latLng,
             mapTypeId: google.maps.MapTypeId.HYBRID
         };
 
-        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
@@ -32,9 +33,9 @@ var previousZoom;
         });
 
         marker.addListener('click' , function(){
-            if(map.getZoom() != 20){
+            if(map.getZoom() != 18){
                 previousZoom = map.getZoom();
-                map.setZoom(20);
+                map.setZoom(18);
                 map.setCenter(marker.getPosition());
             } else {
                 map.setZoom(previousZoom);
