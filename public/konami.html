@@ -28,8 +28,28 @@
             var yay = new Audio("/sounds/yay.wav"); 
             var sounddown = new Audio("/sounds/sounddown.mp3");
             var gameover = new Audio("/sounds/gameover.mp3") 
-            var code = [];
-            var konami = "38,38,40,40,37,39,37,39,66,65,13";
+            var keys = {
+                up:    38,
+                down:  40,
+                left:  37,
+                right: 39,
+                a:     65,
+                b:     66,
+                enter: 13
+            };
+            var sequence = [
+                keys.up,
+                keys.up,
+                keys.down,
+                keys.down,
+                keys.left,
+                keys.right,
+                keys.left,
+                keys.right,
+                keys.b,
+                keys.a,
+                keys.enter
+            ];
 
             var timer = 0;
             var seconds = 0;
@@ -61,26 +81,29 @@
                 'font-size' : '30px',
                 'color' : 'blue'
             });
-      
+
             $(document).keydown(function(e) {
+                var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
                 metronome.play();
-                code.push(e.keyCode);
 
-                if (code.toString().indexOf(konami) >=0) {
-                    metronome.pause();
-                    yay.play();
-                    $('.ifYay').show();
-                    $('h1 , h2').hide();
-                    yay.onended = function() {
-                        window.location.href = 'http://codeup.dev/konami.html?' + seconds;
-                    };  
-                }
+                if (charCode == sequence[keyIndex]) {
+                    keyIndex++;
 
-                if(konami.indexOf(code.toString()) == -1) {
-                    displayFail();
-                }
-
+                    if (charCode == sequence.length) {
+                        metronome.pause();
+                        yay.play();
+                        $('.ifYay').show();
+                        $('h1 , h2').hide();
+                        yay.onended = function() {
+                            window.location.href = 'http://codeup.dev/konami.html?' + seconds;
+                        keyIndex = 0;
+                    }
+                    } else {
+                        keyIndex = 0;
+                        displayFail();
+                    }
             });
+      
 
             function displayFail(){
                 metronome.pause();

@@ -1,4 +1,4 @@
-    var map;
+var map;
 $(function(){
     navigator.geolocation.getCurrentPosition(function(position){
         var ajaxReq = $.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&cnt=3", {
@@ -83,7 +83,7 @@ $(function(){
             html += '<span><p>' + 'Pressure: ' + Math.round(data.list[2].pressure) + '</p></span>';
             $('.weatherframes3').html(html);
     };
-// ======================================
+// =================================================================
 function weatherDisplay(lat,lng){
     var ajaxReq = $.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + lat + "&lon=" + lng + "&cnt=3", {
         APPID: "a3e158cae18676225bc1c74badfe5dfa",
@@ -95,12 +95,11 @@ function weatherDisplay(lat,lng){
             displayMap(lat,lng,cityName)
         });
 };
-// ===================================
-//FORM INPUT ON CLICK FUNCTION
+// =================================================================
     $('#formId').on('submit',function(e){
         e.preventDefault();
-        var form = $('form').serializeArray();
-        var address = form[0].value;
+
+        var address = $('#address').val();
         var geocoder = new google.maps.Geocoder();
 
         geocoder.geocode({'address' : address} , function(results , status){
