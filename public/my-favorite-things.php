@@ -1,11 +1,22 @@
 <?php
-$favoriteThings = [
-    'hamburgers',
-    'cinnamon gum',
-    'remington',
-    'vikings',
-    'water'
-];
+
+function pageController() {
+
+    $data = array();
+
+    $data['favoriteThings'] = [
+        'hamburgers',
+        'cinnamon gum',
+        'Remington',
+        'Vikings',
+        'water'
+    ];
+
+    return $data;
+};
+
+extract(pageController());
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,10 +56,11 @@ $favoriteThings = [
         <h1>My Favorite Things</h1>
 
         <table>
-            <?php foreach ($favoriteThings as $favoriteThing) { ?>
+            <?php foreach ($favoriteThings as $favoriteThing): ?>
             <tr><td><?= $favoriteThing; ?></td></tr>
-            <?php } ?>
+            <?php endforeach; ?>
         </table>
+
     </div>
 </body>
 </html>

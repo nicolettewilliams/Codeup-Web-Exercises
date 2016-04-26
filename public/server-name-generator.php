@@ -1,38 +1,58 @@
 <?php
 
-$adjectives = [
-    'unsightly', 
-    'mushy', 
-    'hairy', 
-    'sweaty', 
-    'colossal', 
-    'teeny-tiny', 
-    'purring', 
-    'eager', 
-    'repulsive', 
-    'hard'
-];
+function pageController(){
+    $data = array();
 
-$nouns = [
-    'alpaca', 
-    'grandpa', 
-    'balls', 
-    'dingle-berry', 
-    'noggin', 
-    'rumpus', 
-    'kermudgin', 
-    'manscape', 
-    'stick-figures',
-    'llamamoramma'
-];
+    $adjectives = [
+        'unsightly', 
+        'mushy', 
+        'hairy', 
+        'sweaty', 
+        'colossal', 
+        'teeny-tiny', 
+        'purring', 
+        'eager', 
+        'repulsive', 
+        'hard',
+        'greasy',
+        'burnt',
+        'wrinkly',
+        'furry'
+    ];
 
-function randomElementInArray($array){
-    return $array[mt_rand(0, count($array) - 1)];
+    $nouns = [
+        'alpaca', 
+        'grandpa', 
+        'balls', 
+        'dingle-berry', 
+        'noggin', 
+        'rumpus', 
+        'kermudgin', 
+        'man-scape', 
+        'stick-figures',
+        'llamamoramma',
+        'egg-roll'
+    ];
+
+    function randomElementInArray($array){
+        return $array[mt_rand(0, count($array) - 1)];
+    };
+
+    function randomServerName($adjectives, $nouns){
+        return randomElementInArray($adjectives) . '-' . randomElementInArray($nouns);
+    };
+
+    $data = [];
+
+    $data ['serverName'] = randomServerName($adjectives, $nouns);
+
+    return $data;
+
 };
 
-function randomServerName($adjectives, $nouns){
-    return randomElementInArray($adjectives) . '-' . randomElementInArray($nouns);
-};
+extract(pageController());
+
+
 
 ?>
 
@@ -75,7 +95,7 @@ function randomServerName($adjectives, $nouns){
     <div class='wrapper'>
 
         <h1 id='title'>Server Name Generator</h1>
-        <h2><?= randomServerName($adjectives, $nouns); ?></h2>
+        <h2><?= $serverName; ?></h2>
 
     </div>
 
