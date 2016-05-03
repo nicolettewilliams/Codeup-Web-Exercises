@@ -17,6 +17,13 @@ body {
     padding-top: 15px;
 }
 
+/*.aboutme{
+    height: 200px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}*/
+
 .title{
     background-color: #777;
     font-size: 4em;
@@ -215,6 +222,16 @@ a:active {
 }
 
 h2{
+    margin: 0px;
+}
+
+.blue2{
+    background-color: #3498DB;
+    margin: 0px;
+}
+
+.purple2{
+    background-color: #9B59B6;
     margin: 0px;
 }
 
