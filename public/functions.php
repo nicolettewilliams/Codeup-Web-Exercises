@@ -1,19 +1,25 @@
 <?php
-function inputHas ($key) {
+
+
+function inputHas ($key) 
+{
     if (isset($_REQUEST[$key])) {
         return true;
+    } else {
+        return false;
     }
-
-    return false;
 }
-function inputGet ($key) {
+
+function inputGet ($key) 
+{
     if (isset($_REQUEST[$key])) {
         return $_REQUEST[$key];
+    } else {
+        return NULL;
     }
-
-   return NULL;
 }
 
-function escape($input){
+function escape($input)
+{
     return htmlentities($input);
 }

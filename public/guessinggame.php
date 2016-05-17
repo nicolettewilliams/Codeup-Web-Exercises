@@ -1,18 +1,9 @@
 <?php
-session_start();
-require_once '../Auth.php';
-require_once '../Input.php';
-if (Auth::check()) {
-    $username = Auth::user();
-} else {
-    header("Location: login.php");
-    exit();
-}   
 ?>
-<!DOCTYPE html>
+
 <html>
 <head>
-    <title>POST Example</title>
+    <title>Guessing Game</title>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Poiret+One|Pacifico' rel='stylesheet' type='text/css'>
 
@@ -35,9 +26,11 @@ if (Auth::check()) {
 </head>
 <body>
     <div class="wrapper">
-        <h1>You are authorized to enter</h1>
-        <h3>Welcome <?= $username?> please enjoy our page!</h3>
-        <a href="logout.php">Logout</a>
+        <h1>Guess The Number</h1>
+        <input type="text" name="minimum" placeholder="Min Value"><br><br>
+        <input type="text" name="maximum" placeholder="Max Value"><br><br>
+
     </div>
+
 </body>
 </html>
