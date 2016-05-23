@@ -38,17 +38,11 @@ h2{
     text-align: center;
 }
 .tabledeco{
-/*    padding-left: 20px;
-    padding-right: 20px;*/
     background-color: #B8BBAA;
 }
 .teaser{
     cursor: pointer;
 }
-/*.form{
-    padding-left: 20px;
-    padding-right: 20px;
-}*/
 .nopadding{
     padding: 0px;
 }
@@ -59,4 +53,7 @@ h2{
 .fulldescription{
     display: none;
     cursor: pointer;
+}
+.errors{
+    color: red;
 }

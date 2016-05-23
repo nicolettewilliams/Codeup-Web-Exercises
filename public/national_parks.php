@@ -1,34 +1,5 @@
 <?php  
-define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'parks_db');
-define('DB_USER', 'parks_user');
-define('DB_PASS', 'password');
-require_once '../db_connect.php';
-require_once '../Input.php';
-$limit = 4;
-$lastPage = ceil(($dbc->query('SELECT count(*) FROM national_parks')->fetchColumn())/$limit);
-$page = Input::has('page')? Input::get('page') : 1;
-$nextPage = $page + 1; 
-$previousPage = $page - 1; 
-$offset = ($page - 1) * 4; //page number determines how much offset there is
-$parks = $dbc->query("SELECT * FROM national_parks LIMIT $limit OFFSET $offset")->fetchAll(PDO::FETCH_ASSOC);
-
-if(Input::has('name') && Input::has('location') && Input::has('date_established') && Input::has('area_in_acres') && Input::has('description'))
-    {
-        var_dump('inside if');
-        $name = Input::get('name');
-        $location = Input::get('location');
-        $date_established = Input::get('date_established');
-        $area_in_acres = Input::get('area_in_acres');
-        $description = Input::get('description');
-        $stmt = $dbc->prepare('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
-        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
-        $stmt->bindValue(':location', $location, PDO::PARAM_STR);
-        $stmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
-        $stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_INT);
-        $stmt->bindValue(':description', $description, PDO::PARAM_STR);
-        $stmt->execute();
-    }
+require_once '../parksphp.php';
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +8,7 @@ if(Input::has('name') && Input::has('location') && Input::has('date_established'
     <title>National Parks</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/nationalpark.css">
 </head>
@@ -58,14 +30,16 @@ if(Input::has('name') && Input::has('location') && Input::has('date_established'
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($parks as $park) : ?>
+                    <?php foreach ($parkInfo as $park) : ?>
                     <tr>
                         <td><?= $park['name'] ?> </td>
                         <td><?= $park['location'] ?> </td>
                         <td><?= $park['date_established'] ?> </td>
                         <td><?= $park['area_in_acres'] ?> </td>
-                        <td class='teaser' data-id="<?= $park['id'] ?>"><?= mb_strimwidth($park['description'], 0, 25, "(...)"); ?></td>
-                        <td class='fulldescription' data-id="<?= $park['id'] ?>"><?= $park['description'] ?></td>
+                        <td>
+                            <div class='teaser' data-id="<?= $park['id'] ?>"><?= mb_strimwidth($park['description'], 0, 75, "<span class='dots'>(...)</span>"); ?></div>
+                            <div class='fulldescription' data-id="<?= $park['id'] ?>"><?= $park['description'] ?> <i class="fa fa-arrow-up arrow" aria-hidden="true"></i></span></div>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -81,6 +55,11 @@ if(Input::has('name') && Input::has('location') && Input::has('date_established'
         </div>
 
         <h2>Add a Park</h2>
+        <?php if($errors): ?>
+            <?php foreach($errors as $error): ?>
+                <p class="errors"><?= $error ?></p>
+            <?php endforeach; ?>
+        <?php endif; ?>
         <div class="formdiv">
             <form class="form"type="GET" action="#">
                 <div class="row">
@@ -110,16 +89,8 @@ if(Input::has('name') && Input::has('location') && Input::has('date_established'
             </form>
         </div>
     </div>
-
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript">
-        $('.fulldescription').hide();
-        $('.teaser').click(function(){
-            var parkId = $(this).data('id');
-            $('.fulldescription[data-id="' + parkId + '"]').show();
-            $(this).hide();
-        });
-    </script>
+    <script src="js/parks.js"></script>
 </body>
 </html>
 

@@ -1,38 +1,25 @@
-(function($) {
-    $.fn.ellipsis = function()
-    {
-        return this.each(function()
-        {
-            var el = $(this);
+$('.teaser').click(function(){
+    $(this).hide();
+    $(this).next().show();
+});
 
-            if(el.css("overflow") == "hidden")
-            {
-                var text = el.html();
-                var multiline = el.hasClass('multiline');
-                var t = $(this.cloneNode(true))
-                    .hide()
-                    .css('position', 'absolute')
-                    .css('overflow', 'visible')
-                    .width(multiline ? el.width() : 'auto')
-                    .height(multiline ? 'auto' : el.height())
-                    ;
+$('.fulldescription').click(function(){
+    $(this).hide();
+    $(this).prev().show();
+});
 
-                el.after(t);
+$('.teaser').mouseover(function() {
+    $(this.children).css({"color": "blue", "text-decoration": "underline"});
+});
 
-                function height() { return t.height() > el.height(); };
-                function width() { return t.width() > el.width(); };
+$('.teaser').mouseout(function() {
+    $(".dots").css({"color": "black" , "text-decoration": "none"});
+});
 
-                var func = multiline ? height : width;
+$('.fulldescription').mouseover(function() {
+    $(this.children).css({"color": "blue", "text-decoration": "underline"});
+});
 
-                while (text.length > 0 && func())
-                {
-                    text = text.substr(0, text.length - 1);
-                    t.html(text + "...");
-                }
-
-                el.html(t.html());
-                t.remove();
-            }
-        });
-    };
-})(jQuery);
+$('.fulldescription').mouseout(function() {
+    $(".arrow").css({"color": "black" , "text-decoration": "none"});
+});
