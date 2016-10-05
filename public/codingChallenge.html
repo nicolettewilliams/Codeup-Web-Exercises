@@ -1,0 +1,64 @@
+<html>
+<head>
+	<title>
+	</title>
+</head>
+<body>
+
+
+
+<script type="text/javascript">
+
+function toTitleCase(str)
+{
+    console.log(str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}));
+}
+
+function transform(text) {
+    var s = text.split('');
+    for (var i = 0; i < s.length; i++) {
+        switch(s[i]) {
+          case ' ':
+            break;
+          case 'z':
+            s[i] = 'a';
+            break;
+          case 'Z':
+            s[i] = 'A';
+            break;
+          default:
+            s[i] = String.fromCharCode(1 + s[i].charCodeAt(0));
+        }
+
+        switch(s[i]) {
+          case 'a': case 'e': case 'i': case 'o': case 'u':
+            s[i] = s[i].toUpperCase();
+        }
+    }
+    console.log(s.join(''));
+}
+
+function generatePyramid() {
+    var totalNumberofRows = 3;
+    var output="";
+    var str = '1';
+    for (var i = 1; i <= totalNumberofRows; i++) {
+      for (var j = 1 ; j <= str; j++) {
+        output+=j + "     ";
+  }
+  console.log(output);
+      output="";
+   }
+}
+
+
+
+toTitleCase('capitalize this word');
+
+transform('abcDefgHijklMNopqrstuvwXyz');
+
+generatePyramid();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Map</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/weatherMaps.css">
+
+</head>
+<body id="body">
+
+    <main class="wrapper">
+
+        <header>
+            <h1 id="weathermaptitle"> 3 Day Forecast</h1>
+        </header>
+
+        <div class="locationheader" style="text-align: center;">-----</div>
+
+        <div class="container">
+
+            <div class="row">
+                <span class="col-sm-4 weatherframes margin">
+                    <span><h3>-----° / -----°</h3></span>
+                    <span><p><img class="loading" src="/img/ladybug-load.gif"></p></span>
+                    <span><p>-----</p></span>
+                    <span><p>Humidity:-----</p></span>
+                    <span><p>Wind:-----</p></span>
+                    <span><p>Pressure:-----</p></span>
+                </span>
+                <span class="col-sm-4 weatherframes2 margin">
+                    <span><h3>-----° / -----°</h3></span>
+                    <span><p><img class="loading" src="/img/ladybug-load.gif"></p></span>
+                    <span><p>-----</p></span>
+                    <span><p>Humidity:-----</p></span>
+                    <span><p>Wind:-----</p></span>
+                    <span><p>Pressure:-----</p></span>
+                </span>
+                <span class="col-sm-4 weatherframes3 margin">
+                    <span><h3>-----° / -----°</h3></span>
+                    <span><p><img class="loading" src="/img/ladybug-load.gif"></p></span>
+                    <span><p>-----</p></span>
+                    <span><p>Humidity:-----</p></span>
+                    <span><p>Wind:-----</p></span>
+                    <span><p>Pressure:-----</p></span>
+                </span>
+            </div>
+
+            <form method="post" id="formId">
+                <div class="col-lg-12">
+                    <div class="input-group margin">
+                        <input id="address" type="text" class="form-control" placeholder="Search for a place..." name="address">
+                        <span class="input-group-btn">
+                        <button class="btn btn-info" type="submit">Get Weather!</button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row">
+                <div class="col-sm-12" id="map-canvas"></div>
+            </div>
+
+        </div>
+
+
+
+    </main>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="js/weatherMaps.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6tYr3MHBGpKFvll0e6yt0kp_F0y6otVk"></script>
+</body>
+</html>

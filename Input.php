@@ -1,6 +1,59 @@
 <?php
 class Input
 {
+    public static function getString($key, $min = 1, $max = 400)
+    {
+        $string = Input::get($key);
+        if(empty($string)){
+            throw new OutOfRangeException("{$key} does not have a value.");
+        }else if(!is_numeric($key) && is_numeric($min) && is_numeric($max)){
+            if(!is_numeric($string)){
+                if(strlen($string) > $min && strlen($string) < $max){
+                    return $string;
+                }else{
+                    throw new LengthException("The number of characters in ({$string}) must be greater than {$min} and less than {$max}.");
+                }
+            }else{
+                throw new DomainException("{$string} needs to be a string.");
+            }
+        }else{
+            throw new InvalidArgumentException("{$key} needs to be a string, and {$min} and {$max} should be numeric.");
+        }
+        
+    }
+
+    public static function getDate($key)
+    {
+        $value = Input::get($key);
+        $format = 'Y-m-d';
+        $dateObject = DateTime::createFromFormat($format, $value);
+        if($dateObject) {
+            $dateString = $dateObject->format($format);
+            return $dateString;
+        } else {
+            throw new Exception($value . ' is not a valid date.');
+        }
+    }
+    public static function getNumber($key, $min = 1, $max = 9999999999.99 )
+    {
+        $number = Input::get($key);
+        if(empty($number)){
+            throw new OutOfRangeException("{$key} does not have a value.");
+        }else if(!is_numeric($key) && is_numeric($min) && is_numeric($max)){
+            if(is_numeric($number)){
+                if($number > $min && $number < $max){
+                    return $number;
+                }else{
+                    throw new RangeException("The number ({$number}) must be greater than {$min} and less than {$max}.");
+                }
+            }else{
+                throw new DomainException("{$number} needs to be a number.");
+            }
+        }else{
+            throw new InvalidArgumentException("{$key} needs to be a string, and {$min} and {$max} should be numeric.");
+        }
+        
+    }
     /**
      * Check if a given value was passed in the request
      *
@@ -9,11 +62,11 @@ class Input
      */
     public static function has($key)
     {
-        if (!empty($_REQUEST[$key])) {
-            return true;
-        } else {
-            return false;
-        }
+       if (isset($_REQUEST[$key])){
+        return true;
+       }else{
+        return false;
+       }
     }
     /**
      * Get a requested value from either $_POST or $_GET
@@ -24,49 +77,12 @@ class Input
      */
     public static function get($key, $default = null)
     {
-        if (!empty($_REQUEST[$key])) {
-            return self::escape($_REQUEST[$key]);
-        } else {
-            return NULL;
+        if (isset($_REQUEST[$key])){
+            return trim($_REQUEST[$key]);
         }
-    }
-    public static function getString($key)
-    {
-        $value = trim(static::get($key));
-        // $isString = settype($value, 'string');
-        if(!isset($value)){
-             throw new Exception('Input must not be a null!');
+        else{
+            return $default;
         }
-        // Check if value is a string
-        if (!is_string($_REQUEST[$key])) {
-            throw new Exception('Input must be a string!');
-        }
-        return $value;
-    }    
-    public static function getNumber($key)
-    {
-        $value = str_replace(',', '', static::get($key));
-        if(!isset($value)){
-            throw new Exception('Input must not be a null!');
-        }
-        // Check if value is a string
-        if (!is_numeric($_REQUEST[$key])) {
-            throw new Exception('Input must be a number!');
-        }
-        return $value;
-    }
-    public static function getDate($key){
-        $value = trim(static::get($key));
-        $format = 'Y-m-d';
-        $dateObject = DateTime::createFromFormat($format, $value);
-        if($dateObject){
-            return $dateObject->date;
-        }else{
-            throw new Exception('Input must be a valid date!');
-        }
-    }
-    public static function escape($input){
-        return htmlspecialchars(strip_tags($input));
     }
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //

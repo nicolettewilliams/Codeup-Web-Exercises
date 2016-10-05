@@ -37,7 +37,7 @@ require_once '../parksphp.php';
                         <td><?= $park['date_established'] ?> </td>
                         <td><?= $park['area_in_acres'] ?> </td>
                         <td>
-                            <div class='teaser' data-id="<?= $park['id'] ?>"><?= mb_strimwidth($park['description'], 0, 75, "<span class='dots'>(...)</span>"); ?></div>
+                            <div class='teaser' data-id="<?= $park['id'] ?>"><?= mb_strimwidth($park['description'], 0, 60, "<span class='dots'>(...)</span>"); ?></div>
                             <div class='fulldescription' data-id="<?= $park['id'] ?>"><?= $park['description'] ?> <i class="fa fa-arrow-up arrow" aria-hidden="true"></i></span></div>
                         </td>
                     </tr>

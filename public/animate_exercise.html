@@ -13,7 +13,7 @@
         }
 
         #animate-box {
-            background-color: #000;
+            background-color: #e2e2e2;
             height: 250px;
             margin: 15px;
             position: relative;
@@ -35,65 +35,50 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-    $(document).ready(function() {
-        "use strict";
-        // TODO: "Move It" should move the box 100 pixels to the left
+        $(document).ready(function() {
+            "use strict";
 
-        var box = $("#animate-box");
+            var box = $("#animate-box");
 
-        $("#btn-move").click(function() {
-            box.animate({
-                left: '+=100px'
-            }, 2000);
+            $("#btn-move").click(function() {
+                box.animate({
+                    left: '+=100px'
+                }, 2000);
+            });
+
+            $("#btn-scale").click(function() {
+                box.animate({
+                    width: '+=125px'
+
+                },2000);
+            });
+
+            $("#btn-hide").click(function() {
+                box.animate({
+                    opacity: "hide"
+                },2000);
+            });
+
+            $("#btn-show").click(function() {
+                box.animate({
+                    opacity: "show"
+                },2000);
+            });
+
+            $("#btn-all").click(function() {
+                box.animate({
+                    left: '+=100px',
+                    width: '+=125px'
+                }, 2000).animate({
+                    opacity: 'hide'
+                }, 2000).animate({
+                    opacity: 'show',
+                    width: '-=125px',
+                    left: '-=100px'
+                },2000);
+
+            });
         });
-
-        // TODO: "Scale It" should expand the box width by 50%
-
-        $("#btn-scale").click(function() {
-            box.animate({
-                width: '+=125px'
-
-            },2000);
-        });
-
-        // TODO: "Hide It" should use opacity to make the box invisible
-
-        $("#btn-hide").click(function() {
-            box.animate({
-                opacity: "hide"
-            },2000);
-        });
-
-        // TODO: "Show It" should make the box appear
-        $("#btn-show").click(function() {
-            box.animate({
-                opacity: "show"
-            },2000);
-        });
-
-        // TODO: "Animate All" should use an animation stack to:
-        //      1) Move and scale the box simultaneously
-        //      2) Hide the box
-        //      3) Reset the box back to its original position and opacity
-
-        $("#btn-all").click(function() {
-            box.animate({
-                left: '+=100px',
-                width: '+=125px'
-            }, 2000).animate({
-                opacity: 'hide'
-            }, 2000).animate({
-                opacity: 'show',
-                width: '-=125px',
-                left: '-=100px'
-            },2000);
-
-        });
-
-
-
-    
-    });
 
     </script>
 </body>
